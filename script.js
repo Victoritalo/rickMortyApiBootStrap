@@ -8,7 +8,7 @@ const nextBtn = document.querySelector("#nextBtn");
 // let randomPage = Math.floor(Math.random() * 42) + 1;
 let currentPage = 1;
 let totalOfPages = "";
-let characters = [];
+let characters = "";
 
 async function renderCharacters() {
   try {
@@ -26,16 +26,13 @@ async function renderCharacters() {
       } else {
         statusStyle = "background-color: gray";
       }
-      console.log(character.id);
       characterHTML += `
       <div
       class="col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center mt-3"
       data-bs-toggle="modal" data-bs-target="#characterModal"
-       onclick="openModal(${character.id - 1})">
+       onclick="openModal(${characters.indexOf(character)})">
       <div
-        class="card text-center bg-dark text-secondary border-0"
-        style="width: 18rem"
-        >
+        class="card text-center bg-dark text-secondary border-0">
         <img
           src="${character.image}"
           alt="${character.name}"
@@ -48,6 +45,7 @@ async function renderCharacters() {
               ${character.status} - ${character.species}
             </p>
           </div>
+          <div>ID: ${character.id}</div>
           <p class="fw-bold">
             Last seen:<br />
             ${character.location.name}
@@ -67,6 +65,37 @@ async function renderCharacters() {
   updateFooterInfo();
   previousBtn.disabled = currentPage === 1;
   nextBtn.disabled = currentPage === totalOfPages;
+}
+
+function openModal(index) {
+  const character = characters[index];
+  let typeText = character.type === "" ? "Its a secret..." : character.type;
+
+  let charModalHTML = "";
+  charModalHTML = `<div class="modal-content bg-dark text-secondary border-0">
+  <img src="${character.image}" alt="test" class="rounded-top border-0" />
+  <div class="modal-header border-0">
+    <h5 class="modal-title text-warning">${character.name}</h5>
+    <p class="modal-title text-secondary mt-1">ID: ${character.id}</p>
+  </div>
+  <div class="modal-body border-0">
+    <div class="modal-title text-secondary">
+      <p class="fw-bold">Origin: ${character.origin.name}</p>
+      <p class="fw-bold">Last seen: ${character.location.name}</p>
+      <p class="fw-bold">Gender: ${character.gender} | Specie: ${character.species}</p>
+      <p class="fw-bold"></p>
+      <p class="fw-bold">Type: ${typeText} | Episodes: ${character.episode.length}</p>
+      <p class="fw-bold"></p>
+    </div>
+  </div>
+  <div class="modal-footer border-0">
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+      Close
+    </button>
+  </div>
+</div>
+`;
+  charModal.innerHTML = charModalHTML;
 }
 
 async function updateFooterInfo() {
@@ -103,29 +132,3 @@ function previousPage() {
 
 renderCharacters();
 updateFooterInfo();
-
-function openModal(id) {
-  const character = characters[id]
-  let charModalHTML = "";
-  charModalHTML = `<div class="modal-content bg-dark text-secondary border-0">
-  <img src="${character.image}" alt="test" class="rounded-top border-0" />
-  <div class="modal-header border-0">
-    <h5 class="modal-title text-warning">${character.name}</h5>
-    <p class="modal-title text-secondary">ID: ${character.id}</p>
-  </div>
-  <div class="modal-body border-0">
-    <div class="modal-title text-secondary">
-      <h5 class="">Origin: ${character.origin.name}</h5>
-      <p class="fw-bold">Last seen: ${character.location.name}</p>
-      <p class="fw-bold">Gender: ${character.gender}</p>
-    </div>
-  </div>
-  <div class="modal-footer border-0">
-    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-      Close
-    </button>
-  </div>
-</div>
-`;
-  charModal.innerHTML = charModalHTML;
-}
