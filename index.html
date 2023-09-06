@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/4d50fc5e66.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Rick & Morty API</title>
+  </head>
+  <body>
+    <header class="siteHeader">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://t4.ftcdn.net/jpg/05/19/70/81/360_F_519708159_DsoIN3KqstTSQZXkNcUNu4ZYb3EL3eqO.jpg"
+            alt="Rick Morty"
+            width="80"
+            height="80"
+            alt="Rick logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#characters"
+              ><strong>Characters</strong></a
+            >
+            <a class="nav-item nav-link disabled" href="#"
+              ><strong>API</strong></a
+            >
+            <a
+              class="nav-item nav-link"
+              href="https://github.com/Victoritalo?tab=repositories"
+              target="_blank"
+              ><strong>Repository</strong></a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="logoRickMorty text-center mt-5">
+      <img
+        src="./assets/Rick_And_Morty_(2).png"
+        class="img-fluid"
+        alt="Responsive image"
+      />
+      <img src="" alt="" />
+    </div>
+
+    <main id="characters" class="container-fluid mt-5 bg-secondary p-5">
+      <div class="row" id="characterList"></div>
+    </main>
+
+    <div class="container text-center mt-4">
+      <div class="btn">
+        <button
+          id="previousBtn"
+          class="btn btn-primary"
+          onclick="previousPage()"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button id="nextBtn" class="btn btn-primary" onclick="nextPage()">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+    <!-- MODAL -->
+    <div
+      class="modal fade border-0"
+      id="characterModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div id="charModal" class="modal-dialog modal-sm border-0"></div>
+    </div>
+    <!-- MODAL -->
+    <footer class="d-flex row vw-100 mt-5 bg-dark text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div id="footerInfo" class="row justify-content-center">
+              <section id="" class="row justify-content-center py-5">
+                <p class="col-md-3 col-sm-5">
+                  CHARACTERS: <span id="nper"> </span>
+                </p>
+                <p class="col-md-3 col-sm-5">
+                  LOCATIONS: <span id="nloc"></span>
+                </p>
+                <p class="col-md-3 col-sm-5">
+                  EPISODES: <span id="nep"></span>
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+html {
+  scroll-behavior: smooth;
+}
+/* 
+
+.character img {
+  width: 220px;
+  border-radius: 20px 0px 0px 20px;
+}
+.character {
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: 0.2s;
+  user-select: none;
+  width: 80%;
+}
+.character:hover{
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+
+.btn button:hover {
+  transform: scale(1.05);
+  color: var(--textHover);
+}
+
+*/
+/* .status {
+  display: flex;
+  align-items: center;
+} */
+.statusView {
+  margin-top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.navbar-brand img {
+  transform: scaleX(-1);
+} 
+
+.card {
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: 0.2s;
+  user-select: none;
+  /* width: 500px; */
+}
+.card:hover{
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
