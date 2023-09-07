@@ -45,7 +45,6 @@ async function renderCharacters() {
               ${character.status} - ${character.species}
             </p>
           </div>
-          <div>ID: ${character.id}</div>
           <p class="fw-bold">
             Last seen:<br />
             ${character.location.name}
@@ -59,10 +58,9 @@ async function renderCharacters() {
     window.alert(
       `An issue occurred: ${err.response.status} ${err.response.data.error}`
     );
-    console.clear();
     return;
   }
-  updateFooterInfo();
+  // updateFooterInfo();
   previousBtn.disabled = currentPage === 1;
   nextBtn.disabled = currentPage === totalOfPages;
 }
@@ -98,27 +96,27 @@ function openModal(index) {
   charModal.innerHTML = charModalHTML;
 }
 
-async function updateFooterInfo() {
-  try {
-    const characterResponse = await axios.get(url + "character");
-    const locationResponse = await axios.get(
-      "https://rickandmortyapi.com/api/location"
-    );
+// async function updateFooterInfo() {
+//   try {
+//     const characterResponse = await axios.get(url + "character");
+//     const locationResponse = await axios.get(
+//       "https://rickandmortyapi.com/api/location"
+//     );
 
-    const characterCount = characterResponse.data.info.count;
-    const totalPages = characterResponse.data.info.pages;
-    const locationCount = locationResponse.data.info.count;
+//     const characterCount = characterResponse.data.info.count;
+//     const totalPages = characterResponse.data.info.pages;
+//     const locationCount = locationResponse.data.info.count;
 
-    footerInfoContainer.innerHTML = `
-        <section class="row justify-content-center py-5">
-          <p class="col-md-3 col-sm-5">CHARACTERS: ${characterCount}</p>
-          <p class="col-md-3 col-sm-5">LOCATIONS: ${totalPages}</p>
-          <p class="col-md-3 col-sm-5">EPISODES: ${locationCount}</p>
-        </section> `;
-  } catch (err) {
-    console.error("Error updating footer info:", err);
-  }
-}
+//     footerInfoContainer.innerHTML = `
+//         <section class="row justify-content-center py-5">
+//           <p class="col-md-3 col-sm-5">CHARACTERS: ${characterCount}</p>
+//           <p class="col-md-3 col-sm-5">LOCATIONS: ${totalPages}</p>
+//           <p class="col-md-3 col-sm-5">EPISODES: ${locationCount}</p>
+//         </section> `;
+//   } catch (err) {
+//     console.error("Error updating footer info:", err);
+//   }
+// }
 
 function nextPage() {
   currentPage++;
@@ -131,4 +129,4 @@ function previousPage() {
 }
 
 renderCharacters();
-updateFooterInfo();
+// updateFooterInfo();

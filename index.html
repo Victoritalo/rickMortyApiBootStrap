@@ -12,7 +12,7 @@
     ></script>
     <title>Rick & Morty API</title>
   </head>
-  <body>
+  <body class="bg-secondary">
     <header class="siteHeader">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
@@ -52,14 +52,14 @@
           </div>
         </div>
       </nav>
+      <!-- <div class="logoRickMorty text-center mt-5">
+        <img
+          src="./assets/Rick_And_Morty_(2).png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div> -->
     </header>
-    <div class="logoRickMorty text-center mt-5">
-      <img
-        src="./assets/Rick_And_Morty_(2).png"
-        class="img-fluid"
-        alt="Responsive image"
-      />
-    </div>
 
     <main id="characters" class="container-fluid mt-5 bg-secondary p-5">
       <div class="row" id="characterList"></div>
@@ -90,27 +90,29 @@
       <div id="charModal" class="modal-dialog modal-sm border-0"></div>
     </div>
     <!-- MODAL -->
-    <footer class="d-flex row vw-100 mt-5 bg-dark text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div id="footerInfo" class="row justify-content-center">
-              <section id="" class="row justify-content-center py-5">
-                <p class="col-md-3 col-sm-5">
-                  CHARACTERS: <span id="nper"> </span>
-                </p>
-                <p class="col-md-3 col-sm-5">
-                  LOCATIONS: <span id="nloc"></span>
-                </p>
-                <p class="col-md-3 col-sm-5">
-                  EPISODES: <span id="nep"></span>
-                </p>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+<div class="mb-0 my-5">
+  <footer class="bg-dark text-center text-white">
+  <div class="container p-4 pb-0">
+    <section class="mb-4">
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/devicttor/" role="button"
+         target="_blank"><i class="fab fa-instagram"></i
+      ></a>
+
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/victoritalo/" role="button"
+        target="_blank"><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/Victoritalo" role="button"
+        target="_blank"><i class="fab fa-github"></i
+      ></a>
+    </section>
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="https://github.com/Victoritalo" target="_blank">Victor Italo</a>
+  </div>
+</footer>
+</div>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="./script.js"></script>
   </body>
