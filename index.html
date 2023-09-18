@@ -13,59 +13,69 @@
     <title>Rick & Morty API</title>
   </head>
   <body class="bg-secondary">
-    <header class="siteHeader">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          <img
-            src="https://t4.ftcdn.net/jpg/05/19/70/81/360_F_519708159_DsoIN3KqstTSQZXkNcUNu4ZYb3EL3eqO.jpg"
-            alt="Rick Morty"
-            width="80"
-            height="80"
-            alt="Rick logo"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Rick & Morty</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#characters"
-              ><strong>Characters</strong></a
-            >
-            <a class="nav-item nav-link disabled" href="#"
-              ><strong>API</strong></a
-            >
-            <a
-              class="nav-item nav-link"
-              href="https://github.com/Victoritalo?tab=repositories"
-              target="_blank"
-              ><strong>Repository</strong></a
-            >
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#characters">Characters</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <header>
+    
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="background-image: url('https://i.ytimg.com/vi/sE6Ox3ikCMU/maxresdefault.jpg')">
+          </div>
+          <div class="carousel-item" style="background-image: url('https://i.ytimg.com/vi/7cTe55sflTw/maxresdefault.jpg')">
+          </div>
+          <div class="carousel-item" style="background-image: url('https://i.ytimg.com/vi/Vtbo9op9sAI/maxresdefault.jpg')">
           </div>
         </div>
-      </nav>
-      <!-- <div class="logoRickMorty text-center mt-5">
-        <img
-          src="./assets/Rick_And_Morty_(2).png"
-          class="img-fluid"
-          alt="Responsive image"
-        />
-      </div> -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </header>
+    
+    <!-- Page Content -->
+    <section class="py-5">
+      <div class="container">
+        <h1 class="fw-bold">Front End Rick & Morty</h1>
+        <p class="lead">This project was made by consuming <a href="https://rickandmortyapi.com/" target="_blank" class="text-black link-dark">Rick & Morty API</a>!</p>
+      </div>
+    </section>
 
     <main id="characters" class="container-fluid mt-5 bg-secondary p-5">
+      
       <div class="row" id="characterList"></div>
     </main>
 
-    <div class="container text-center mt-4">
+    <div class="container text-center mt-1">
       <div class="btn">
         <button
           id="previousBtn"
@@ -92,7 +102,7 @@
     <!-- MODAL -->
 <div class="mb-0 my-5">
   <footer class="bg-dark text-center text-white">
-  <div class="container p-4 pb-0">
+  <div class="container p-4 pb-0" id="contact">
     <section class="mb-4">
       <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/devicttor/" role="button"
          target="_blank"><i class="fab fa-instagram"></i

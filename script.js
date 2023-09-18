@@ -5,10 +5,10 @@ const statusView = document.querySelector(".statusView");
 const previousBtn = document.querySelector("#previousBtn");
 const nextBtn = document.querySelector("#nextBtn");
 
-// let randomPage = Math.floor(Math.random() * 42) + 1;
 let currentPage = 1;
 let totalOfPages = "";
 let characters = "";
+let statusStyle = "";
 
 async function renderCharacters() {
   try {
@@ -18,7 +18,6 @@ async function renderCharacters() {
 
     let characterHTML = "";
     characters.forEach((character) => {
-      let statusStyle = "";
       if (character.status === "Alive") {
         statusStyle = "background-color: green";
       } else if (character.status === "Dead") {
@@ -60,30 +59,38 @@ async function renderCharacters() {
     );
     return;
   }
-  // updateFooterInfo();
   previousBtn.disabled = currentPage === 1;
   nextBtn.disabled = currentPage === totalOfPages;
 }
 
 function openModal(index) {
+  let statusModal = document.querySelector('.statusModal')
   const character = characters[index];
   let typeText = character.type === "" ? "Its a secret..." : character.type;
-
   let charModalHTML = "";
+  if (character.status === "Alive") {
+    statusStyle = "background-color: green";
+  } else if (character.status === "Dead") {
+    statusStyle = "background-color: red";
+  } else {
+    statusStyle = "background-color: gray";
+  }
   charModalHTML = `<div class="modal-content bg-dark text-secondary border-0">
-  <img src="${character.image}" alt="test" class="rounded-top border-0" />
+  <div class="statusModal rounded-circle mx-2 my-2" style="${statusStyle}"></div>
+  <img src="${character.image}" alt="${character.name}" class="rounded-top border-0" />
   <div class="modal-header border-0">
     <h5 class="modal-title text-warning">${character.name}</h5>
-    <p class="modal-title text-secondary mt-1">ID: ${character.id}</p>
+    <p class="modal-title text-secondary mt-1 fw-bold">ID: ${character.id}</p>
   </div>
   <div class="modal-body border-0">
+  <p class="text-secondary">Character info:</p>
     <div class="modal-title text-secondary">
-      <p class="fw-bold">Origin: ${character.origin.name}</p>
-      <p class="fw-bold">Last seen: ${character.location.name}</p>
-      <p class="fw-bold">Gender: ${character.gender} | Specie: ${character.species}</p>
-      <p class="fw-bold"></p>
-      <p class="fw-bold">Type: ${typeText} | Episodes: ${character.episode.length}</p>
-      <p class="fw-bold"></p>
+      <p class="">Origin: ${character.origin.name}</p>
+      <p class="">Last seen: ${character.location.name}</p>
+      <p class="">Gender: ${character.gender} | Specie: ${character.species}</p>
+      <p class=""></p>
+      <p class="">Type: ${typeText} | Episodes: ${character.episode.length}</p>
+      <p class=""></p>
     </div>
   </div>
   <div class="modal-footer border-0">
@@ -95,38 +102,12 @@ function openModal(index) {
 `;
   charModal.innerHTML = charModalHTML;
 }
-
-// async function updateFooterInfo() {
-//   try {
-//     const characterResponse = await axios.get(url + "character");
-//     const locationResponse = await axios.get(
-//       "https://rickandmortyapi.com/api/location"
-//     );
-
-//     const characterCount = characterResponse.data.info.count;
-//     const totalPages = characterResponse.data.info.pages;
-//     const locationCount = locationResponse.data.info.count;
-
-//     footerInfoContainer.innerHTML = `
-//         <section class="row justify-content-center py-5">
-//           <p class="col-md-3 col-sm-5">CHARACTERS: ${characterCount}</p>
-//           <p class="col-md-3 col-sm-5">LOCATIONS: ${totalPages}</p>
-//           <p class="col-md-3 col-sm-5">EPISODES: ${locationCount}</p>
-//         </section> `;
-//   } catch (err) {
-//     console.error("Error updating footer info:", err);
-//   }
-// }
-
 function nextPage() {
   currentPage++;
   renderCharacters();
 }
-
 function previousPage() {
   currentPage--;
   renderCharacters();
 }
-
 renderCharacters();
-// updateFooterInfo();
